@@ -2,6 +2,9 @@
 
 namespace App\Controllers;
 
+use App\Controllers\BaseController;
+use App\Models\Mahasiswa;
+
 class Pages extends BaseController
 {
     public function view($page = 'home')
@@ -15,6 +18,20 @@ class Pages extends BaseController
 
         return view('templates/header', $data)
             . view('pages/' . $page)
+            . view('templates/footer');
+    }
+
+    public function mahasiswa(){
+	$mahasiswaModel = new Mahasiswa();
+	$mahasiswa = $mahasiswaModel->findAll();
+
+	$data = [
+		'title' => 'Daftar Mahasiswa',
+		'mahasiswa' => $mahasiswa
+	];
+
+	return view('templates/header', $data)
+            . view('pages/mahasiswa', $data)
             . view('templates/footer');
     }
 }
