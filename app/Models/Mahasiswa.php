@@ -6,13 +6,13 @@ use CodeIgniter\Model;
 
 class Mahasiswa extends Model
 {
-    protected $table            = 'mahasiswa';
-    protected $primaryKey       = 'id';
-    protected $useAutoIncrement = true;
-    protected $allowedFields    = [];
+	protected $table            = 'mahasiswa';
+	protected $primaryKey       = 'id';
+	protected $useAutoIncrement = true;
+	protected $allowedFields    = ['npm', 'nama', 'alamat'];
 
-    protected $useTimestamps = false;
-    protected $dateFormat    = 'datetime';
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
+	protected $useTimestamps = false;
+	protected $dateFormat    = 'datetime';
+	protected $createdField  = 'create_at';
+	protected $updatedField  = 'update_at';
 }
